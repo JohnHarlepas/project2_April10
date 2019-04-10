@@ -1,0 +1,4 @@
+
+DROP DATABASE IF EXISTS madden_db;
+
+CREATE DATABASE madden_db;
