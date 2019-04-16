@@ -96,7 +96,10 @@ $(document).ready(function() {
 	clicked = true;
 	$(".mode").click(function() {
 		if(clicked){
-			$('head').append('<link href="dist/css/dark.min.css" id="dark" type="text/css" rel="stylesheet">');
+			// {{!-- this link connects the higher level file main.handblebars to the deeper level file that exits inside the file located in the template--}}
+			$('head').append('<link href="/templates/Swipe - The Simplest Chat Platform/html/dist/css/dark.min.css" id="dark" type="text/css" rel="stylesheet">');
+			//this link was used to find the my way back to the higher level. it mirrors the above and it is the original 
+			// $('head').append('<link href="dist/css/dark.min.css" id="dark" type="text/css" rel="stylesheet">');
 			clicked  = false;
 		}
 		else {

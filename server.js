@@ -10,6 +10,8 @@ var PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+//forces express to use public to look for images, audio, javscript, etc. This means that when you want to add a image and you need to input a src.
+// the only thing you do is type src="(name of folder or file inside of public)" . You don't have to do anything else. 
 app.use(express.static("public"));
 
 // Handlebars

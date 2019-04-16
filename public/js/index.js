@@ -1,7 +1,9 @@
 // Get references to page elements
 var $exampleText = $("#example-text");
+var $exampleImageLink = $("#example-imageLink")
 var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
+var $submitBtn = $("#submit1");
+var $submitBtn1 = $("#submit2");
 var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
@@ -29,6 +31,32 @@ var API = {
     });
   }
 };
+
+var API1 = {
+  savePlaybook: function(playbook) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/playbooks",
+      data: JSON.stringify(playbook)
+    });
+  },
+  getPlaybook: function() {
+    return $.ajax({
+      url: "api/playbooks",
+      type: "GET"
+    });
+  },
+  deletePlaybook: function(id) {
+    return $.ajax({
+      url: "api/playbooks/" + id,
+      type: "DELETE"
+    });
+  }
+};
+
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
@@ -65,21 +93,42 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    text: $exampleText.val().trim()
+    // description: $exampleDescription.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+  // if (!(example.text && example.description)) {
+  //   alert("You must enter an example text and description!");
+  //   return;
+  // }
 
   API.saveExample(example).then(function() {
     refreshExamples();
   });
 
   $exampleText.val("");
-  $exampleDescription.val("");
+  // $exampleDescription.val("");
+};
+
+var handleFormSubmit1 = function(event) {
+  event.preventDefault();
+
+  var example = {
+    imageLink: $exampleImageLink.val().trim()
+    // description: $exampleDescription.val().trim()
+  };
+
+  // if (!(example.text && example.description)) {
+  //   alert("You must enter an example text and description!");
+  //   return;
+  // }
+
+  API.saveExample(example).then(function() {
+    refreshExamples();
+  });
+
+  $exampleImageLink.val("");
+  // $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -96,4 +145,6 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+$submitBtn1.on("click", handleFormSubmit1);
+

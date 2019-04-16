@@ -613,7 +613,7 @@ input:checked + .slider:before {
 	display: inline-flex;
 	font-size: 16px;
 	font-weight: 700;
-	color: #212529;
+	color: #292421;
 	margin-bottom: 5px;
 }
 .sidebar .contacts .contact .data p {
@@ -2072,6 +2072,7 @@ input:checked + .slider:before {
 		max-width: 100%;
 	}
 }
+
 @media (max-width: 768px) {
 	.main .chat .top {
 		padding: 20px 0;
@@ -2089,6 +2090,7 @@ input:checked + .slider:before {
 	.container {
 		padding-left: 5px;
 		padding-right: 5px;
+
 	}
 	.requests .title {
 		padding: 30px 20px;

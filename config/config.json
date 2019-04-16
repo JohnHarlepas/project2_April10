@@ -2,14 +2,18 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "madden_db",
+    "database": "exampledb",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "useUTC": false
+  },
+  "timezone": "-3:00"
   },
   "test": {
     "username": "root",
     "password": "password",
-    "database": "madden_db",
+    "database": "exampledb",
 
     "host": "localhost",
     "dialect": "mysql",
